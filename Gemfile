@@ -1,6 +1,8 @@
-source "https://rubygems.org"
+# frozen_string_literal: true
 
-ruby "3.1.2"
+source 'https://rubygems.org'
+
+ruby '3.1.2'
 
 group :development do
   gem 'rubocop', require: false
