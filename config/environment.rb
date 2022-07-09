@@ -8,3 +8,6 @@ $LOAD_PATH.push $ROOT_PATH
 Bundler.require(:default, ENV.fetch('APP_ENV', 'development'))
 
 require 'lib/reader'
+require 'lib/counter/interface'
+require 'lib/counter/total'
+require 'lib/counter/unique'
