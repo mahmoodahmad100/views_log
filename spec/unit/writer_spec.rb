@@ -12,7 +12,6 @@ RSpec.describe Writer do
         }.to_a
     }
 
-    # it shoud work correctly but there is a problem, will look into it later on
     context 'when type is total' do
         let(:type) { 'total' }
 

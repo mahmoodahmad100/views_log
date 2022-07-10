@@ -13,14 +13,14 @@ RSpec.describe Reader do
         let(:file) { File.join($ROOT_PATH, 'spec/fixtures/webserver.log') }
 
         lines = [
-            '/help_page/1' => '126.318.035.038'
-        ]
-
-        lines = [
+            "/contact 444.701.448.104\n",
             "/help_page/1 126.318.035.038\n",
             "/contact 184.123.665.067\n",
             "/home 184.123.665.067\n",
-            "/about/2 444.701.448.104"
+            "/about/2 444.701.448.104\n",
+            "/contact 184.123.665.067\n",
+            "/home 184.123.665.067\n",
+            "/contact 184.123.665.067"
         ]
 
         it { is_expected.to eq(lines) }

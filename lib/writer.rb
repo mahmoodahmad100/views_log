@@ -8,7 +8,7 @@ class Writer
 
     def start
         data.each do |k, v|
-            puts "#{k} #{v[:count]} #{type == 'unique' ? 'unique' : ''} #{v[:count] == 1 ? 'visit' : 'visits'}"
+            puts "#{k} #{v[:count]} #{type == 'unique' ? 'unique ' : ''}#{v[:count] == 1 ? 'visit' : 'visits'}"
         end
     end
 
