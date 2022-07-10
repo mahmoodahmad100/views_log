@@ -1,0 +1,12 @@
+AllCops:
+  NewCops: enable
+Style/Documentation:
+  Enabled: false
+Style/GlobalVars:
+  Enabled: false
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+Metrics/MethodLength:
+  Exclude:
+    - 'lib/counter/unique.rb'

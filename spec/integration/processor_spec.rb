@@ -3,7 +3,7 @@
 RSpec.describe Processor do
   let(:processor) { described_class.new(views_type, counter) }
 
-  let(:lines) { Reader.new(File.join($ROOT_PATH, 'spec/fixtures/webserver.log')).start() }
+  let(:lines) { Reader.new(File.join($ROOT_PATH, 'spec/fixtures/webserver.log')).start }
 
   context 'when views type is total views' do
     let(:views_type) { 'total' }
@@ -18,7 +18,7 @@ RSpec.describe Processor do
       TEXT
     end
 
-    it { expect { processor.start() }.to output(text).to_stdout }
+    it { expect { processor.start }.to output(text).to_stdout }
   end
 
   context 'when views type is unique views' do
@@ -34,6 +34,6 @@ RSpec.describe Processor do
       TEXT
     end
 
-    it { expect { processor.start() }.to output(text).to_stdout }
+    it { expect { processor.start }.to output(text).to_stdout }
   end
 end

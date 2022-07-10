@@ -1,16 +1,18 @@
 # frozen_string_literal: true
 
 module Counter
-    class Total < Interface
-        def start()
-            hash = Hash.new
-            lines.each do |line|
-                x = line.split(' ')
-                hash[x[0]] = { count: 0, ips: []} unless hash.has_key? x[0]
-                hash[x[0]][:count] += 1
-            end
+  class Total < Interface
+    def start
+      hash = {}
+      lines.each do |line|
+        formated_line = line.split
+        url = formated_line[0]
 
-            hash
-        end
+        hash[url] = { count: 0, ips: [] } unless hash.key? url
+        hash[url][:count] += 1
+      end
+
+      hash
     end
+  end
 end

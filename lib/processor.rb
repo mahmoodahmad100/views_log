@@ -7,13 +7,12 @@ class Processor
   end
 
   def start
-    counted_data = counter.start()
-    sorted_data = Sorter.new(counted_data).start()
-    writer = Writer.new(sorted_data, views_type).start()
+    counted_data = counter.start
+    sorted_data = Sorter.new(counted_data).start
+    Writer.new(sorted_data, views_type).start
   end
 
   protected
 
   attr_reader :views_type, :counter
-  
 end

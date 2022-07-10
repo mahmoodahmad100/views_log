@@ -1,19 +1,22 @@
 # frozen_string_literal: true
 
 module Counter
-    class Unique < Interface
-        def start()
-            hash = Hash.new
-            lines.each do |line|
-                x = line.split(' ')
-                hash[x[0]] = { count: 0, ips: []} unless hash.has_key? x[0]
-                if (not hash[x[0]][:ips].include? x[1])
-                  hash[x[0]][:count] += 1
-                  hash[x[0]][:ips] << x[1]
-                end
-            end
+  class Unique < Interface
+    def start
+      hash = {}
+      lines.each do |line|
+        formated_line = line.split
+        url = formated_line[0]
+        ip = formated_line[1]
 
-            hash
+        hash[url] = { count: 0, ips: [] } unless hash.key? url
+        unless hash[url][:ips].include? ip
+          hash[url][:count] += 1
+          hash[url][:ips] << ip
         end
+      end
+
+      hash
     end
+  end
 end
