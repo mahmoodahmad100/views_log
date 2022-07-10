@@ -17,3 +17,6 @@ options[:views] ||= 'total'
 
 raise 'Views should be total or unique' unless %w[total unique].include? options[:views]
 raise 'Views log file is required' unless ARGV[0]
+
+lines = Reader.new(ARGV[0]).start();
+Processor.new(options[:views], options[:views] == 'total' ? Counter::Total.new(lines) : Counter::Unique.new(lines)).start()
