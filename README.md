@@ -9,7 +9,7 @@ The app is built on Ruby and it implements best practices like applying `SOLID` 
 
 ### Trade-offs
 if I was to spend additional time on the project I would do the following:
-* Use Docker
+* ~~Use Docker~~
 * Use Kubernetes
 * Make the `Writer` class (lib/writer.rb) more scalable as it's currently coupled to 2 options (unique & total)
 * Handle unforeseen circumferences, ex: what if the log file content is in different format ?
@@ -18,6 +18,8 @@ if I was to spend additional time on the project I would do the following:
 (1) Open the terminal and navigate to the project directory and run `bundle install`
 
 (2) copy the log file (you can use this one `spec/fixtures/webserver.log`) to `logs` directory
+
+(3) copy `.env.example` and rename the copied file to `.env` and you can change all the details from there  
 ### Usage:
 
 ```
