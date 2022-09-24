@@ -4,7 +4,6 @@
 ## Description
 The aim of the project is to get some statistics about visits to the website based on the log file. it can show the total visits and the unique visits.
 
-#### Quick short video:
 <div align="center">
   <a target="_blank" href="https://www.youtube.com/watch?v=LOcvpZDPfYI"><img src="https://img.youtube.com/vi/LOcvpZDPfYI/maxresdefault.jpg" alt="Laragine quick intro!"></a>
 </div>
