@@ -1,0 +1,74 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: views-log-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  hostPath:
+    path: /logs
+    type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: views-log-pvc
+spec:
+  resources:
+    requests:
+      storage: 1Gi
+  volumeName: views-log-pv
+  accessModes:
+    - ReadWriteOnce
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: views-log-config
+data:
+  VIEWS: unique
+  LOGFILE: ./logs/webserver.log
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: views-log
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: views-log
+  template:
+    metadata:
+      labels:
+        app: views-log
+    spec:
+      containers:
+      - name: views-log
+        image: mahmoodahmad100/views-log
+        env:
+          - name: VIEWS
+            valueFrom:
+              configMapKeyRef:
+                name: views-log-config
+                key: VIEWS
+          - name: LOGFILE
+            valueFrom:
+              configMapKeyRef:
+                name: views-log-config
+                key: LOGFILE
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        volumeMounts:
+        - mountPath: /app/logs
+          name: views-log-volume
+      volumes:
+        - name: views-log-volume
+          persistentVolumeClaim:
+            claimName: views-log-pvc

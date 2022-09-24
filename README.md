@@ -10,7 +10,7 @@ The app is built on Ruby and it implements best practices like applying `SOLID` 
 ### Trade-offs
 if I was to spend additional time on the project I would do the following:
 * ~~Use Docker~~
-* Use Kubernetes
+* ~~Use Kubernetes~~
 * Make the `Writer` class (lib/writer.rb) more scalable as it's currently coupled to 2 options (unique & total)
 * Handle unforeseen circumferences, ex: what if the log file content is in different format ?
 ### Getting started:
